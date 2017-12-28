@@ -1,0 +1,13 @@
+{
+  "channels": {
+    "onechannelseemedgoodenough": {
+      "messages": {
+        "examplemessage": {
+          "author": "Devraj",
+          "contents": "Hello",
+          "timestamp": "Now?"
+        }
+      }
+    }
+  }
+}

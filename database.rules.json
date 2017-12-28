@@ -1,13 +1,15 @@
 {
   "rules": {
-    "$channel": {
+    "channels": {
       ".read": "auth != null",
-      "messages": {
-        ".write": "auth != null"
-      },
-      "users": {
-        "$uid": {
-          ".write": "auth.uid === $uid"
+      "$channel": {
+        "messages": {
+          ".write": "auth != null"
+        },
+        "users": {
+          "$uid": {
+            ".write": "auth.uid === $uid"
+          }
         }
       }
     }
