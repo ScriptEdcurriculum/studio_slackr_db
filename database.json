@@ -1,6 +1,7 @@
 {
   "channels": {
-    "onechannelseemedgoodenough": {
+    "fakeguid": {
+      "name": "One Channel Seemed Enough",
       "messages": {
         "examplemessage": {
           "author": "Devraj",
