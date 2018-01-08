@@ -4,9 +4,9 @@
       "name": "One Channel Seemed Enough",
       "messages": {
         "examplemessage": {
-          "author": "Devraj",
-          "contents": "Hello",
-          "timestamp": "Now?"
+          "author": "Test User",
+          "contents": "Hello!",
+          "timestamp": "Mon Jan 08 2018 16:01:11 GMT-0500 (EST)"
         }
       }
     }
