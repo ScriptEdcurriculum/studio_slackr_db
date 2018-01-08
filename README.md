@@ -1,6 +1,7 @@
 # Firebase Config for Studio Slackr Project
 
-See web console <https://console.firebase.google.com/project/studio-slackr/>
+See web console
+<https://console.firebase.google.com/u/0/project/studio-slackr/database/studio-slackr/data>
 
 ## Set Up
 
