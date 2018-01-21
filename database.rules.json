@@ -1,8 +1,59 @@
 {
   "rules": {
     "channels": {
+      // Anyone logged in can read and write to channels.
       ".read": "auth != null",
-      ".write": "auth != null"
+      ".write": "auth != null",
+
+      // Firebase uses '$' to capture path segments. This is the
+      // automatically generated push ID.
+      "$channel": {
+
+        // Required channel properties:
+        //   name: a string
+        //   messages: an array of objects as defined below
+        ".validate": "newData.hasChildren(['messages', 'name'])",
+
+        "name": {
+          ".validate": "newData.isString()"
+        },
+
+        "messages": {
+
+          // Firebase uses '$' to capture path segments. This is the
+          // automatically generated push ID.
+          "$message": {
+
+            // Required message properties:
+            //   author: a string
+            //   contents: a string
+            //   timestamp: a number (unix time)
+            ".validate":
+                "newData.hasChildren(['author', 'contents', 'timestamp'])",
+
+            "author": {
+              ".validate": "newData.isString()"
+            },
+            "contents": {
+              ".validate": "newData.isString()"
+            },
+            "timestamp": {
+              ".validate": "newData.isNumber()"
+            },
+
+            // Optional message properties:
+            //   image_source: a URL
+            //   is_encrypted: a boolean
+            "image_source": {
+              // Regex source: https://firebase.google.com/docs/reference/security/database/regex
+              ".validate": "newData.isString() && newData.val().matches(/^(ht|f)tp(s?):\\/\\/[0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*((0-9)*)*(\\/?)([a-zA-Z0-9\\-\\.\\?\\,\\'\\/\\\\+&=%\\$#_]*)?$/)"
+            },
+            "is_encrypted": {
+              ".validate": "newData.isBoolean()"
+            }
+          }
+        }
+      }
     }
   }
 }
