@@ -11,13 +11,14 @@
 
         // Required channel properties:
         //   name: a string
-        //   messages: an array of objects as defined below
-        ".validate": "newData.hasChildren(['messages', 'name'])",
+        ".validate": "newData.hasChildren(['name'])",
 
         "name": {
           ".validate": "newData.isString()"
         },
 
+        // Optional channel properties:
+        //   messages: an array of objects as defined below
         "messages": {
 
           // Firebase uses '$' to capture path segments. This is the
